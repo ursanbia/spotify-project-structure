@@ -1,10 +1,10 @@
 package com.spotify.ui;
 
-import com.spotify.controllers.LoginControllers;
+import com.spotify.controllers.UsersController;
 
 public class LoginUI {
 
-    private LoginControllers loginControllers;
+    private UsersController loginControllers;
 
     public void login() {
         System.out.println("1. Username");
@@ -12,6 +12,6 @@ public class LoginUI {
         System.out.println("2. Password");
         // String password = read from keyboard password
 
-        loginControllers.login("usernaem", "password");
+        //loginControllers.login("usernaem", "password");
     }
 }
