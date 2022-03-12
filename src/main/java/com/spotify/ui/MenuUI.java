@@ -20,18 +20,22 @@ public class MenuUI {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        switch (choice) {
-            case 1 -> {
+        switch(choice) {
+            case 1:
                 List<User> users = usersController.getUsers();
                 printUsers(users);
-            }
-            case 2 -> {
+                break;
+
+            case 2:
                 System.out.println("========== Please provide email & password ==========");
                 String email = scanner.next();
                 String password = scanner.next();
+
                 usersController.signUp(email, password);
-            }
-            default -> System.out.println("Please pick your account type");
+                break;
+
+            default:
+                System.out.println("Please pick your account type");
         }
     }
 
