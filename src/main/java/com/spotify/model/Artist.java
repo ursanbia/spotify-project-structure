@@ -4,9 +4,9 @@ public class Artist extends User{
 
     public Artist(int id, String password, String email) {
 
-       super(id);
-       super(password);
-       super(email);
+         super(id);
+         super(password);
+         super(email);
 
     }
 }

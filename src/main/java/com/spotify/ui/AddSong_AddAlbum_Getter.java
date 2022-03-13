@@ -2,7 +2,7 @@ package com.spotify.ui;
 
 import java.util.Scanner;
 
-public class AddSongGetter {
+public class AddSong_AddAlbum_Getter {
 
     static Scanner keyboardScanner = new Scanner(System.in);
 
@@ -18,5 +18,12 @@ public class AddSongGetter {
         String songDuration = keyboardScanner.next();
 
         return  songDuration;
+    }
+
+    public static String getSongAlbumName() {
+        System.out.println("Please enter the Album name");
+        String songAlbumName = keyboardScanner.next();
+
+        return  songAlbumName;
     }
 }

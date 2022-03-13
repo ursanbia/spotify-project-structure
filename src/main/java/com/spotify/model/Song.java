@@ -6,18 +6,21 @@ public class Song {
     private int id;
     private String songName;
     private String songDuration;
-    private Artist artist;
+    private int artistId;
 
-    public Song(String songName, String songDuration, Artist artist) {
+    public Song(String songName, String songDuration, int artistId) {
         this.songName = songName;
         this.songDuration = songDuration;
-        this.artist = artist;
+        this.artistId = artistId;
         setId();
         this.id = getId();
     }
 
-    public Song(Album album){
-        this.album = album;
+    public Song(int id, String songName, String songDuration, int artistId) {
+        this.id = getId();
+        this.songName = songName;
+        this.songDuration = songDuration;
+        this.artistId = artistId;
     }
 
     public int getId() {
@@ -54,11 +57,11 @@ public class Song {
         this.songDuration = songDuration;
     }
 
-    public Artist getArtist() {
-        return artist;
+    public Integer getArtistId() {
+        return artistId;
     }
 
-    public void setArtist(Artist artist) {
-        this.artist = artist;
+    public void setArtistId(int artistId) {
+        this.artistId = artistId;
     }
 }
