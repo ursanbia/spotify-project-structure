@@ -2,25 +2,22 @@ package com.spotify.model;
 
 public class User {
 
-    private long id;
-    private String username;
+    private int id;
+    private String password;
     private String email;
 
+    public User(int id, String password, String email) {
+        this.id = id;
+        this.password = password;
+        this.email = email;
+    }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
@@ -31,7 +28,11 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
-//    public boolean isActive() {
-//    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
