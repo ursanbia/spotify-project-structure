@@ -3,33 +3,44 @@ package com.spotify.service;
 import com.spotify.dao.UserDao;
 import com.spotify.model.User;
 
-public class UserService {
+import java.util.ArrayList;
+import java.util.List;
 
+public class UserService {
     private UserDao userDao;
 
-    public boolean login(String username, String password) {
-//        User user = userDao.getUser(username, password);
-//        if (user.isActive()) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-        return true;
-
+    public UserService() {
+        userDao = new UserDao();
     }
 
+    public List<User> getAllUsers() {
+        var usersDaos = userDao.getUsers();
+        var users = new ArrayList<User>();
 
-    public void singUp(String email, String password) {
-        // verify user doesn't yet exist
-        //persist user(inactiv)
-        //confirmation email
-
+        for (UserDao dao :
+                usersDaos) {
+            var user = new User();
+            user.setId(dao.getId());
+            user.setEmail(dao.getEmail());
+            user.setPassword(dao.getPassword());
+            users.add(user);
         }
-
-    public void confirm() {
-        // confirm user -> active
+        return users;
     }
 
+    public void signUp(String email, String password) {
+        userDao.saveUser(email, password);
+    }
 
-
+    public User login(String email, String password) {
+        var existingUser = userDao.checkUserExist(email, password);
+        if (existingUser == null) {
+            return null;
+        }
+        var user = new User();
+        user.setId(existingUser.getId());
+        user.setEmail(existingUser.getEmail());
+        user.setPassword(existingUser.getPassword());
+        return user;
+    }
 }
