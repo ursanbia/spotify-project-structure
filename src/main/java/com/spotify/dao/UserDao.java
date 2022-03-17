@@ -2,6 +2,8 @@ package com.spotify.dao;
 
 import com.spotify.model.User;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,7 +17,7 @@ public class UserDao {
 
     private int id;
     private String email;
-    Path inputFile = Paths.get("~/spotify-project-structure/src/main/java/com/spotify/dao", "users.txt");
+    Path inputFile = Paths.get("/Users/biancaursan/Desktop/team project/spotify-project-structure", "users.txt");
 
     public int getId() {
         return id;
@@ -39,7 +41,18 @@ public class UserDao {
         this.password = password;
     }
 
+    private void createFileIfNotExists() {
+        try {
+            File yourFile = new File("users.txt");
+            yourFile.createNewFile();
+            FileOutputStream oFile = new FileOutputStream(yourFile, false);
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
     public List<UserDao> getUsers() {
+        createFileIfNotExists();
         try {
             List<String> users = Files.readAllLines(inputFile);
             ArrayList<UserDao> userDaos = new ArrayList<UserDao>();
@@ -59,6 +72,7 @@ public class UserDao {
     }
 
     public void saveUser(String email, String password) {
+        createFileIfNotExists();
         var userDao = new UserDao(new Random().nextInt(5) + 1, email, password);
 
         try {
@@ -72,6 +86,7 @@ public class UserDao {
     }
 
     public UserDao checkUserExist(String email, String password) {
+        createFileIfNotExists();
         var existingUsers = this.getUsers();
 
         for (UserDao user :
