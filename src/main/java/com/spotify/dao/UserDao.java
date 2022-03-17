@@ -44,8 +44,9 @@ public class UserDao {
     private void createFileIfNotExists() {
         try {
             File yourFile = new File("users.txt");
-            yourFile.createNewFile();
-            FileOutputStream oFile = new FileOutputStream(yourFile, false);
+            if (!yourFile.exists()) {
+                yourFile.createNewFile();
+            }
         } catch(Exception ex) {
             System.out.println(ex);
         }
@@ -59,9 +60,11 @@ public class UserDao {
 
             for (String user :
                     users) {
-                String[] userInfo = user.split(",");
-                UserDao userDao = new UserDao(Integer.parseInt(userInfo[0]), userInfo[1], userInfo[2]);
-                userDaos.add(userDao);
+                if (!user.equals("")) {
+                    String[] userInfo = user.split(",");
+                    UserDao userDao = new UserDao(Integer.parseInt(userInfo[0]), userInfo[1], userInfo[2]);
+                    userDaos.add(userDao);
+                }
             }
 
             return userDaos;
@@ -91,7 +94,7 @@ public class UserDao {
 
         for (UserDao user :
                 existingUsers) {
-            if (user.email == email && user.password == password) {
+            if (user.email.equals(email) && user.password.equals(password)) {
                 return user;
             }
         }
