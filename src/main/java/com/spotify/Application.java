@@ -9,11 +9,7 @@ public class Application {
 
     static ArrayList<Song> songList = new ArrayList<>();
 
-
     public static void main(String[] args){
         new MainUI().showMain();
-
     }
-
-
 }
