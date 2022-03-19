@@ -17,7 +17,7 @@ public class UserDao {
 
     private int id;
     private String email;
-    Path inputFile = Paths.get("/Users/biancaursan/Desktop/team project/spotify-project-structure", "users.txt");
+    Path inputFile = Paths.get("src/main/resources/", "users.txt");
 
     public int getId() {
         return id;

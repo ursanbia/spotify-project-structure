@@ -12,6 +12,6 @@ public class LoginUI {
         System.out.println("2. Password");
         // String password = read from keyboard password
 
-        loginControllers.login("usernaem", "password");
+        loginControllers.login("username", "password");
     }
 }

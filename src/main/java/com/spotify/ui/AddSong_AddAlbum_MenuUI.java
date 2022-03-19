@@ -14,20 +14,18 @@ public class AddSong_AddAlbum_MenuUI {
         AddSong_AddAlbum_Service.addSongToList(song, songList); //let's add the new object "Song" created by the artist to the current Song list
     }
 
-    public static void show_addAlbumMenu(int artistId, ArrayList<Song> songList) {
+    public static void show_addAlbumMenu(int artistId, ArrayList<Album> albumList) {
 
         //get an Album name from input
-        String songAlbumName = AddSong_AddAlbum_Getter.getSongAlbumName();
-
-        //let's create a new Album using the album name from input
-        Album album = AddSong_AddAlbum_Service.addAlbum(songAlbumName);
+        Album album = AddSong_AddAlbum_Setter.setAlbumDetails(artistId);
+        AddSong_AddAlbum_Service.addAlbumToList(album, albumList);
 
     }
 
-    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList) { //meniu in care artistul poate asocia Albume la Songs
+    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList, ArrayList<Album> albums) { //meniu in care artistul poate asocia Albume la Songs
 
         //arata o lista de songs ale artistului care inca nu au setate un album
-        //....
+        System.out.println("Here is a list of your Songs that have not been linked an Album");
 
         //arata o lista de albume realizate de artist
         //....

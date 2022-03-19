@@ -17,6 +17,16 @@ public class AddSong_AddAlbum_Setter {
         return song;
     }
 
+    public static Album setAlbumDetails(int artistId) {
+
+        String albumName = AddSong_AddAlbum_Getter.getSongAlbumName();
+        Album album = new Album(albumName, artistId);
+
+        AddSong_AddAlbum_Service.addAlbumToFile(album, artistId);
+
+        return album;
+    }
+
     public static void setSongstoAlbum(Album album, Song song) {
 
         song.setAlbum(album);

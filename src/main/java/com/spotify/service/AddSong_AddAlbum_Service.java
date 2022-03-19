@@ -14,9 +14,9 @@ public class AddSong_AddAlbum_Service {
 
     public static void addSongToFile(Song song){
 
-        Path inputFile = Paths.get("\\src\\main\\java\\com\\spotify\\model", "songs.txt");
+        Path inputFile = Paths.get("src/main/resources/", "songs.txt");
         try {
-            String dao = "\n" + song.getId() + "," + song.getSongName() + "," + song.getSongDuration() + "," + song.getArtistId();
+            String dao = "\n" + song.getId() + "," + song.getSongName() + "," + song.getSongDuration() + "," + "NULL";
             Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
         }catch (IOException e) {
@@ -31,12 +31,35 @@ public class AddSong_AddAlbum_Service {
 
     }
 
-    public static Album addAlbum(String songAlbumName) {
+    public static void addAlbumToFile(Album album, int artistId) {
 
-        //let's create a new Album using the album name from input
-        Album album = new Album(songAlbumName);
+        Path inputFile = Paths.get("src/main/resources/", "albums.txt");
+        try {
+            String dao = "\n" + album.getId() + "," + album.getArtistId() + "," +  album.getAlbumName();
+            Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
-        return album;
+        }catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public static void addAlbumToList(Album album, ArrayList<Album> albumList){
+
+        albumList.add(album); //add the Song to the song List
+
+    }
+
+    public static ArrayList<Song> generateListOf_Songs_thatHave_noAlbum(int artistId, ArrayList<Song> songList){
+        //returns a list of the artists' Songs that have not been linked an Album
+        ArrayList<Song> artist_songList_with_noAlbum = new ArrayList<>();
+
+        for (Song song : songList) {
+            if (song.getArtistId() == artistId && song.getAlbum().getAlbumName() != "NULL") {
+                artist_songList_with_noAlbum.add(song);
+            }
+        }
+       return artist_songList_with_noAlbum;
     }
 
 }
