@@ -10,9 +10,9 @@ import java.util.List;
 
 public class SongDao {
 
-    public List<Song> getSongs() {
+    public static List<Song> getSongs() {
 
-        Path inputFile = Paths.get("\\src\\main\\java\\com\\spotify\\model", "songs.txt");
+        Path inputFile = Paths.get("src/main/resources/", "songs.txt");
 
         try {
             List<String> songs = Files.readAllLines(inputFile);
