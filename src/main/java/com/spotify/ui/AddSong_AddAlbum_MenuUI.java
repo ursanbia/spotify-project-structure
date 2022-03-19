@@ -22,10 +22,12 @@ public class AddSong_AddAlbum_MenuUI {
 
     }
 
-    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList, ArrayList<Album> albums) { //meniu in care artistul poate asocia Albume la Songs
+    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList, ArrayList<Album> albumList) { //meniu in care artistul poate asocia Albume la Songs
 
-        //arata o lista de songs ale artistului care inca nu au setate un album
-        System.out.println("Here is a list of your Songs that have not been linked an Album");
+        //arata o lista de Songs ale artistului care inca nu au setate un Album
+        System.out.println("Here is a list of your Songs that you have not yet linked to an Album");
+        ArrayList<Song> artist_songList_with_noAlbum = AddSong_AddAlbum_Service.generateListOf_Songs_thatHave_noAlbum(artistId, songList);
+        AddSong_AddAlbum_Printer.printSongs_withoutAlbum(artist_songList_with_noAlbum);
 
         //arata o lista de albume realizate de artist
         //....

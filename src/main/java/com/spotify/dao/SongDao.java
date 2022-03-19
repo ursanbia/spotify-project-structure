@@ -21,7 +21,7 @@ public class SongDao {
             for (String melody :
                     songs) {
                 String[] songInfo = melody.split(",");
-                Song song = new Song(Integer.parseInt(songInfo[0]), songInfo[1], songInfo[2], Integer.parseInt(songInfo[3]));
+                Song song = new Song(Integer.parseInt(songInfo[0]), Integer.parseInt(songInfo[1]), songInfo[2], songInfo[3], Integer.parseInt(songInfo[4]));
                 songList.add(song);
             }
 

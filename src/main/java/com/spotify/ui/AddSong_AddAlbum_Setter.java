@@ -22,7 +22,7 @@ public class AddSong_AddAlbum_Setter {
         String albumName = AddSong_AddAlbum_Getter.getSongAlbumName();
         Album album = new Album(albumName, artistId);
 
-        AddSong_AddAlbum_Service.addAlbumToFile(album, artistId);
+        AddSong_AddAlbum_Service.addAlbumToFile(album);
 
         return album;
     }
