@@ -4,6 +4,8 @@ import com.spotify.model.Album;
 import com.spotify.model.Song;
 import com.spotify.service.AddSong_AddAlbum_Service;
 
+import java.util.ArrayList;
+
 public class AddSong_AddAlbum_Setter {
 
     public static Song setSongDetails(int artistId) {
@@ -27,10 +29,13 @@ public class AddSong_AddAlbum_Setter {
         return album;
     }
 
-    public static void setSongstoAlbum(Album album, Song song) {
+    public static ArrayList<Song> setSongstoAlbum(ArrayList<Song> songList_toBeEdited, Album album) {
 
-        song.setAlbum(album);
+        for (Song song : songList_toBeEdited) {
+            song.setAlbumId(album.getId());
+        }
 
+        return songList_toBeEdited;
     }
 
 }

@@ -3,7 +3,9 @@ package com.spotify.service;
 import com.spotify.model.Album;
 import com.spotify.model.Song;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,6 +25,49 @@ public class AddSong_AddAlbum_Service {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public static void overwriteSongListInFile(ArrayList<Song> completeSongList) {
+
+        Path inputFile = Paths.get("src/main/resources/", "songs.txt");
+
+        try {
+            PrintWriter writer = new PrintWriter(new File("src/main/resources/songs.txt"));
+            writer.flush();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        int i = 0;
+        for (Song song : completeSongList) {
+            try {
+                String dao = null;
+                if (i != 0) {
+                    dao = "\n" + song.getId() + "," + song.getArtistId() + "," + song.getSongName() + "," + song.getSongDuration() + "," + song.getAlbumId();
+                } else {
+                    dao = song.getId() + "," + song.getArtistId() + "," + song.getSongName() + "," + song.getSongDuration() + "," + song.getAlbumId();
+                }
+                Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+            i++;
+        }
+    }
+
+    public static ArrayList<Song> edit_general_SongList_with_newAlbumId(ArrayList<Song> songList, ArrayList<Song> songList_toBe_Edited) {
+
+        for (Song songEdited : songList_toBe_Edited) {
+            for (Song song : songList) {
+                if (songEdited.getId() == song.getId()) {
+                    song.setAlbumId(songEdited.getAlbumId());
+                }
+            }
+        }
+        return songList;
     }
 
     public static void addSongToList(Song song, ArrayList<Song> songList) {
@@ -59,11 +104,24 @@ public class AddSong_AddAlbum_Service {
             if (song.getArtistId() == artistId && song.getAlbumId() == -1) {
                 artist_songList_with_noAlbum.add(song);
             }
-            //NULLPOINTEXCEPTION!!!!!!!!!!!!!!!!
+            //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!
         }
 
         return artist_songList_with_noAlbum;
 
     }
+
+    public static ArrayList<Album> generateListOf_Albums_for_currentArtist(int artistId, ArrayList<Album> albumList) {
+        ArrayList<Album> currentArtist_albumList = new ArrayList<>();
+
+        for (Album album : albumList) {
+            if (album.getArtistId() == artistId) {
+                currentArtist_albumList.add(album);
+            }
+            //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!
+        }
+        return currentArtist_albumList;
+    }
+
 
 }
