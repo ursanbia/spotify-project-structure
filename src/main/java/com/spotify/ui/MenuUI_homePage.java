@@ -14,9 +14,10 @@ public class MenuUI_homePage {
         System.out.println("1. Search songs");
         System.out.println("2. Liked songs");
         if (artistId != -1) {
-            System.out.println("3. Add a new song");
-            System.out.println("4. Add a new album");
-            System.out.println("5. Link a song to an album");
+            System.out.println("3. See all your songs");
+            System.out.println("4. Add a new song");
+            System.out.println("5. Add a new album");
+            System.out.println("6. Link a song to an album");
         }
 
         Scanner scanner = new Scanner(System.in);
@@ -33,14 +34,18 @@ public class MenuUI_homePage {
                     break;
 
                 case 3:
-                    AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
+                    AddSong_AddAlbum_MenuUI.show_allSongs(1, (ArrayList<Song>) SongDao.getSongs());
                     break;
 
                 case 4:
-                    AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
+                    AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
                     break;
 
                 case 5:
+                    AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
+                    break;
+
+                case 6:
                     AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
             }
         } else {

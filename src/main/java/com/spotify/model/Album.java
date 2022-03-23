@@ -22,8 +22,13 @@ public class Album {
     }
 
     public Album(String albumName, int artistId) {
+        setId();
         this.albumName = albumName;
         this.artistId = artistId;
+    }
+
+    public Album() {
+
     }
 
     public int getId() {
@@ -49,6 +54,7 @@ public class Album {
     public void setId() {
         Random r = new Random( System.currentTimeMillis() );
         this.id = r.nextInt(10000);
+
     }
 
 }

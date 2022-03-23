@@ -1,3 +1,5 @@
 110,1,The best album
 432,1,Fancy album
 3320,2,My new album
+866,1,Yale
+7923,1,New yale

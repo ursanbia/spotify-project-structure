@@ -27,10 +27,21 @@ public class AlbumDao {
 
             return albumList;
 
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex);
         }
         return new ArrayList<Album>();
+    }
+
+    public static Album getAlbum_byId(int albumId) {
+        ArrayList<Album> albumList = getAlbums();
+        for (Album album : albumList) {
+            if (albumId == album.getId()) {
+                return album;
+            }
+
+        }
+        return new Album();
     }
 
 }

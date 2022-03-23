@@ -95,6 +95,23 @@ public class AddSong_AddAlbum_Service {
 
     }
 
+    public static ArrayList<Song> generateListOf_Songs(int artistId, ArrayList<Song> songList) {
+        //returns a list of the artists' Songs
+        ArrayList<Song> artist_songList = new ArrayList<>();
+
+        for (Song song : songList) {
+
+            if (song.getArtistId() == artistId) {
+                artist_songList.add(song);
+            }
+            //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!
+        }
+
+        return artist_songList;
+
+    }
+
+
     public static ArrayList<Song> generateListOf_Songs_thatHave_noAlbum(int artistId, ArrayList<Song> songList) {
         //returns a list of the artists' Songs that have not been linked an Album
         ArrayList<Song> artist_songList_with_noAlbum = new ArrayList<>();

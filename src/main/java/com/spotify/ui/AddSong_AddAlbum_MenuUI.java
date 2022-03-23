@@ -4,10 +4,16 @@ import com.spotify.model.Album;
 import com.spotify.model.Song;
 import com.spotify.service.AddSong_AddAlbum_Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddSong_AddAlbum_MenuUI {
+
+    public static void show_allSongs(int artistId, ArrayList<Song> songList) {
+        //arata o lista de Songs ale artistului
+        System.out.println("\n|Your songs|");
+        ArrayList<Song> artist_songList= AddSong_AddAlbum_Service.generateListOf_Songs(artistId, songList);
+        AddSong_AddAlbum_Printer.printSongs(artist_songList);
+    }
 
     public static void show_addSongMenu(int artistId, ArrayList<Song> songList) {
 
@@ -23,7 +29,7 @@ public class AddSong_AddAlbum_MenuUI {
 
     }
 
-    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList, ArrayList<Album> albumList)  { //meniu in care artistul poate asocia Albume la Songs
+    public static void show_addSongs_toAlbum_Menu(int artistId, ArrayList<Song> songList, ArrayList<Album> albumList) { //meniu in care artistul poate asocia Albume la Songs
 
         //arata o lista de Songs ale artistului care inca nu au setate un Album
         System.out.println("\nHere is a list of your Songs that you have not yet linked to an Album");
@@ -43,7 +49,7 @@ public class AddSong_AddAlbum_MenuUI {
         Album editedAlbum = albumList_for_currentArtist.get(editedAlbumId);
 
         //cere o serie de ID-uri ale melodiilor care sa fie asociate cu albumul si pune-le intr-o lista de Songs
-        ArrayList<Song> songList_toBe_Edited = AddSong_AddAlbum_Getter.getSongList_toBeLinkedto_selectedAlbum(artist_songList_with_noAlbum);
+        ArrayList<Song> songList_toBe_Edited = AddSong_AddAlbum_Getter.getSongList_toBeLinkedto_selectedAlbum(artist_songList_with_noAlbum, artistId);
 
         //modifica Album ID la lista de Songs
         ArrayList<Song> artists_songList_Edited_with_newAlbumId = AddSong_AddAlbum_Setter.setSongstoAlbum(songList_toBe_Edited, editedAlbum);

@@ -9,7 +9,6 @@ import com.spotify.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class MenuUI<emails> {
     private UsersController usersController;
@@ -22,9 +21,10 @@ public class MenuUI<emails> {
         System.out.println("Pick your choice:  ");
         System.out.println("1. Show all users" + "\n" + "2. SignUp");
         System.out.println("3. Login");
-        System.out.println("4. AddSongsTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-        System.out.println("5. AddAlbumTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-        System.out.println("6. AddSongsToAlbumTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+        System.out.println("4. ShowAll_artists_Songs- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+        System.out.println("5. AddSongs- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+        System.out.println("6. AddAlbum- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+        System.out.println("7. AddSongsToAlbum - WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -63,17 +63,22 @@ public class MenuUI<emails> {
                 } else {
                     System.out.println("login successful");
                     int artistId = -1;
-                    //DACA E ARTIST INITIALIZEAZA artistID cu Id-ul userului, altfe artistId = -1;
+                    //DACA E ARTIST INITIALIZEAZA artistID cu Id-ul userului, altfel artistId = -1;
                     MenuUI_homePage.showMenu(artistId);
                 }
             case 4:
+                AddSong_AddAlbum_MenuUI.show_allSongs(1, (ArrayList<Song>) SongDao.getSongs());
+                break;
+//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+            case 5:
                 AddSong_AddAlbum_MenuUI.show_addSongMenu(1, (ArrayList<Song>) SongDao.getSongs());
 //WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
                 break;
-            case 5:
-                AddSong_AddAlbum_MenuUI.show_addAlbumMenu(1, AlbumDao.getAlbums() );
-//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
             case 6:
+                AddSong_AddAlbum_MenuUI.show_addAlbumMenu(1, AlbumDao.getAlbums());
+//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+                break;
+            case 7:
                 AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(1, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
 //WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
             default:

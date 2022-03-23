@@ -1,5 +1,7 @@
 package com.spotify.model;
 
+import com.spotify.dao.AlbumDao;
+
 import java.util.Random;
 
 public class Song {
@@ -26,6 +28,7 @@ public class Song {
         this.songName = songName;
         this.songDuration = songDuration;
         this.albumId = albumId;
+        this.album = AlbumDao.getAlbum_byId(albumId);
     }
 
     public int getId() {
