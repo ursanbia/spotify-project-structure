@@ -36,14 +36,14 @@ public class AddSong_AddAlbum_MenuUI {
         AddSong_AddAlbum_Printer.printAlbums_titleOnly(albumList_for_currentArtist);
 
         //cere ID-ul al album-ului in care sa se introduca melodiile
-        System.out.println("\nPlease insert the Album number in which you want to add your Songs");
+        System.out.println("\nPlease insert the Album number in which you want to add your Songs.");
         int editedAlbumId = AddSong_AddAlbum_Getter.getAlbumId() - 1;
 
         //obtine obiectul Album prin albumId din input
         Album editedAlbum = albumList_for_currentArtist.get(editedAlbumId);
 
         //cere o serie de ID-uri ale melodiilor care sa fie asociate cu albumul si pune-le intr-o lista de Songs
-        ArrayList<Song> songList_toBe_Edited = AddSong_AddAlbum_Getter.getSongList_toBeLinkedto_selectedAlbum(artist_songList_with_noAlbum);
+        ArrayList<Song> songList_toBe_Edited = AddSong_AddAlbum_Getter.getSongList_toBeLinkedto_selectedAlbum(artist_songList_with_noAlbum, artistId);
 
         //modifica Album ID la lista de Songs
         ArrayList<Song> artists_songList_Edited_with_newAlbumId = AddSong_AddAlbum_Setter.setSongstoAlbum(songList_toBe_Edited, editedAlbum);

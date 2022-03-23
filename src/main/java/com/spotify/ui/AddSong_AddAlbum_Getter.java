@@ -36,7 +36,7 @@ public class AddSong_AddAlbum_Getter {
         return albumId;
     }
 
-    public static ArrayList<Song> getSongList_toBeLinkedto_selectedAlbum(ArrayList<Song> songList) {
+    public static ArrayList<Song> getSongList_toBeLinkedto_selectedAlbum(ArrayList<Song> songList, int artistId) {
         System.out.println("\nPlease insert the Song Id you want to link to the selected Album. You can link multiple Songs to the Album - just add each Id on a new line. When you are done just type '-1'");
         int userInput;
         ArrayList<Song> editedSongList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class AddSong_AddAlbum_Getter {
             userInput = keyboardScanner.nextInt();
 
             if (userInput == -1) {
-                break;
+                MenuUI_homePage.showMenu(artistId);
             } else {
                 editedSongList.add(songList.get(userInput - 1));
             }
