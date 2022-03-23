@@ -43,13 +43,16 @@ public class MenuUI<emails> {
                 System.out.println("========== Please provide email & password ==========");
                 System.out.println("email: ");
                 email = scanner.next();
+
                 System.out.println("password: ");
                 password = scanner.next();
 
-                usersController.validateEmail(email);
-                usersController.validatePassword(password);
+                boolean isMailValid = usersController.validateEmail(email);
+                boolean isPasswordValid = usersController.validatePassword(password);
 
-                usersController.signUp(email, password);
+                if (isMailValid && isPasswordValid) {
+                    usersController.signUp(email, password);
+                }
                 break;
             case 3:
                 System.out.println("========== Please provide email & password ==========");

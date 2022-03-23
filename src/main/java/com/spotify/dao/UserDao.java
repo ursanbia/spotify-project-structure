@@ -12,14 +12,16 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
+
 
 public class UserDao {
 
-    private int id;
+    private UUID id;
     private String email;
     Path inputFile = Paths.get("src/main/resources/", "users.txt");
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -33,9 +35,10 @@ public class UserDao {
 
     private String password;
 
-    public UserDao() {}
+    public UserDao() {
+    }
 
-    public UserDao(int id, String email, String password) {
+    public UserDao(UUID id, String email, String password) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -47,7 +50,7 @@ public class UserDao {
             if (!yourFile.exists()) {
                 yourFile.createNewFile();
             }
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }
@@ -62,13 +65,13 @@ public class UserDao {
                     users) {
                 if (!user.equals("")) {
                     String[] userInfo = user.split(",");
-                    UserDao userDao = new UserDao(Integer.parseInt(userInfo[0]), userInfo[1], userInfo[2]);
+                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2]);
                     userDaos.add(userDao);
                 }
             }
 
             return userDaos;
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex);
         }
         return new ArrayList<UserDao>();
@@ -76,13 +79,13 @@ public class UserDao {
 
     public void saveUser(String email, String password) {
         createFileIfNotExists();
-        var userDao = new UserDao(new Random().nextInt(5) + 1, email, password);
+        var userDao = new UserDao(UUID.randomUUID(),email, password);
 
         try {
             String dao = "\n" + userDao.id + "," + userDao.email + "," + userDao.password;
             Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
