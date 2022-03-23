@@ -1,12 +1,14 @@
 package com.spotify.model;
 
+import java.util.UUID;
+
 public class User {
 
-    private int id;
+    private UUID id;
     private String password;
     private String email;
 
-    public User(int id, String password, String email) {
+    public User(UUID id, String password, String email) {
         this.id = id;
         this.password = password;
         this.email = email;
@@ -16,11 +18,11 @@ public class User {
 
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
