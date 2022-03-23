@@ -1,5 +1,7 @@
 package com.spotify.model;
 
+import java.util.Random;
+
 public class Song {
 
     private Album album;
@@ -7,6 +9,7 @@ public class Song {
     private String songName;
     private String songDuration;
     private int artistId;
+    private int albumId;
 
     public Song(String songName, String songDuration, int artistId) {
         this.songName = songName;
@@ -16,21 +19,22 @@ public class Song {
         this.id = getId();
     }
 
-    public Song(int id, String songName, String songDuration, int artistId) {
-        this.id = getId();
+    public Song(int id, int artistId, String songName, String songDuration, int albumId ) {
+        setId();
+        this.id = id;
+        this.artistId = artistId;
         this.songName = songName;
         this.songDuration = songDuration;
-        this.artistId = artistId;
+        this.albumId = albumId;
     }
 
     public int getId() {
         return id;
     }
 
-    private static int i = 1;
     public void setId() {
-        this.id = i;
-        i++;
+        Random r = new Random( System.currentTimeMillis() );
+        this.id = r.nextInt(10000);
     }
 
     public Album getAlbum() {
@@ -39,6 +43,14 @@ public class Song {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public int getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
     }
 
     public String getSongName() {

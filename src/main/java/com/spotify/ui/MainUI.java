@@ -1,5 +1,7 @@
 package com.spotify.ui;
 
+import java.io.IOException;
+
 public class MainUI {
 
     private MenuUI menuUI;
