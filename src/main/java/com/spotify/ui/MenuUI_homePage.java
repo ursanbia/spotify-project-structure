@@ -35,19 +35,19 @@ public class MenuUI_homePage {
                         break;
 
                     case 3:
-                        AddSong_AddAlbum_MenuUI.show_allSongs(artistId, (ArrayList<Song>) SongDao.getSongs());
+                        Song_Album_MenuUI.show_allSongs(artistId, (ArrayList<Song>) SongDao.getSongs());
                         break;
 
                     case 4:
-                        AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
+                        Song_Album_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
                         break;
 
                     case 5:
-                        AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
+                        Song_Album_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
                         break;
 
                     case 6:
-                        AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
+                        Song_Album_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
                 }
             }
         } else {

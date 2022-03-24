@@ -8,7 +8,7 @@ import com.spotify.model.Song;
 
 import java.util.ArrayList;
 
-public class AddSong_AddAlbum_Printer {
+public class Song_Album_Printer {
 
     public static void printSongs_withoutAlbum(ArrayList<Song> songList) {
         int i = 1;

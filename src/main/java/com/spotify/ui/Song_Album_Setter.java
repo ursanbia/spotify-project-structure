@@ -7,12 +7,12 @@ import com.spotify.service.AddSong_AddAlbum_Service;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class AddSong_AddAlbum_Setter {
+public class Song_Album_Setter {
 
     public static Song setSongDetails(UUID artistId) {
 
-        String songName = AddSong_AddAlbum_Getter.getSongName();
-        String songDuration = AddSong_AddAlbum_Getter.getSongDuration();
+        String songName = Song_Album_Getter.getSongName();
+        String songDuration = Song_Album_Getter.getSongDuration();
         Song song = new Song(songName, songDuration, artistId);
 
         AddSong_AddAlbum_Service.addSongToFile(song);
@@ -22,7 +22,7 @@ public class AddSong_AddAlbum_Setter {
 
     public static Album setAlbumDetails(UUID artistId) {
 
-        String albumName = AddSong_AddAlbum_Getter.getSongAlbumName();
+        String albumName = Song_Album_Getter.getSongAlbumName();
         Album album = new Album(albumName, artistId);
 
         AddSong_AddAlbum_Service.addAlbumToFile(album);

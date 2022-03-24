@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class AddSong_AddAlbum_Getter {
+public class Song_Album_Getter {
 
     static Scanner keyboardScanner = new Scanner(System.in);
 

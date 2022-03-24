@@ -42,8 +42,8 @@ public class SignUpUI {
 
             Role role = Role.fromString(userTypeString);
             this.usersController.signUp(email, password, role, artistName);
-           // new LoginUI();
-           // LoginUI.login();
+            new LoginUI();
+            LoginUI.login();
         }
     }
 }

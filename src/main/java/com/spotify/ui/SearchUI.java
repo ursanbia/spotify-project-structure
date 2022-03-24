@@ -30,7 +30,7 @@ public class SearchUI {
 
                 //print get songList
                 if (!generateListOf_Songs_thatContain_searchInput.isEmpty()) {
-                    AddSong_AddAlbum_Printer.printSongs(generateListOf_Songs_thatContain_searchInput);
+                    Song_Album_Printer.printSongs(generateListOf_Songs_thatContain_searchInput);
                 }
                 else System.out.println("Nothing found! Please retry!");
             }
