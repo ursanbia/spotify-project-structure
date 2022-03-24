@@ -6,56 +6,66 @@ import com.spotify.model.Song;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class MenuUI_homePage {
 
-    public static void showMenu(int artistId) {
-        System.out.println("\n|HOME PAGE|");
-        System.out.println("1. Search songs");
-        System.out.println("2. Liked songs");
-        if (artistId != -1) {
-            System.out.println("3. See all your songs");
-            System.out.println("4. Add a new song");
-            System.out.println("5. Add a new album");
-            System.out.println("6. Link a song to an album");
-        }
+    public static void showMenu(UUID artistId, boolean isArtist) {
 
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
 
-        if (artistId != -1) {
-            switch (choice) {
-                case 1:
-                    //MenuUI_SearchSong.showmenu();
+        if (isArtist == true) {
+
+            while (true) {
+                System.out.println("\n|HOME PAGE|\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs | 3. See all your created songs | 4. Create a new album | 5. Link a song to an album");
+
+                int choice = scanner.nextInt();
+                if (choice == 0) {
                     break;
+                }
 
-                case 2:
-                    //MenuUI_LikedSongs.showmenu();
-                    break;
+                switch (choice) {
+                    case 1:
+                        SearchUI.showMenu();
+                        break;
 
-                case 3:
-                    AddSong_AddAlbum_MenuUI.show_allSongs(1, (ArrayList<Song>) SongDao.getSongs());
-                    break;
+                    case 2:
+                        //MenuUI_LikedSongs.showmenu();
+                        break;
 
-                case 4:
-                    AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
-                    break;
+                    case 3:
+                        AddSong_AddAlbum_MenuUI.show_allSongs(artistId, (ArrayList<Song>) SongDao.getSongs());
+                        break;
 
-                case 5:
-                    AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
-                    break;
+                    case 4:
+                        AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
+                        break;
 
-                case 6:
-                    AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
+                    case 5:
+                        AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
+                        break;
+
+                    case 6:
+                        AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
+                }
             }
         } else {
-            switch (choice) {
-                case 1:
-                    //MenuUI_SearchSong.showmenu();
-                    break;
+            while (true) {
+                System.out.println("|HOME PAGE|\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs");
 
-                case 2:
-                    //MenuUI_LikedSongs.showmenu();
+                int choice = scanner.nextInt();
+                if (choice == 0) {
+                    break;
+                }
+
+                switch (choice) {
+                    case 1:
+                        //MenuUI_SearchSong.showmenu();
+                        break;
+
+                    case 2:
+                        //MenuUI_LikedSongs.showmenu();
+                }
             }
         }
 

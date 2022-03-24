@@ -4,9 +4,40 @@ import java.util.UUID;
 
 public class Artist extends User{
 
-    public Artist(UUID id, String password, String email) {
+    private String artistName;
+    private  UUID artistId;
 
-         super(id, password, email);
+    public Artist(UUID artistId, String password, String email) {
 
+         super(artistId, password, email);
+
+
+    }
+
+    public Artist() {
+
+    }
+
+    public Artist(UUID artistId, String artistName) {
+
+        this.artistId = artistId;
+        this.artistName = artistName;
+
+    }
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
+    public UUID getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(UUID artistId) {
+        this.artistId = artistId;
     }
 }

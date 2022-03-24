@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AlbumDao {
 
@@ -21,7 +22,7 @@ public class AlbumDao {
             for (String info :
                     songs) {
                 String[] albumInfo = info.split(",");
-                Album album = new Album(Integer.parseInt(albumInfo[0]), Integer.parseInt(albumInfo[1]), albumInfo[2]);
+                Album album = new Album(Integer.parseInt(albumInfo[0]), UUID.fromString(albumInfo[1]), albumInfo[2]);
                 albumList.add(album);
             }
 

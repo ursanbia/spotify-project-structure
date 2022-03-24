@@ -4,6 +4,7 @@ import com.spotify.model.Song;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class AddSong_AddAlbum_Getter {
 
@@ -36,21 +37,18 @@ public class AddSong_AddAlbum_Getter {
         return albumId;
     }
 
-    public static ArrayList<Song> getSongList_toBeLinkedto_selectedAlbum(ArrayList<Song> songList, int artistId) {
+    public static ArrayList<Song> getSongList_toBeLinkedto_selectedAlbum(ArrayList<Song> songList, UUID artistId) {
         System.out.println("\nPlease insert the Song Id you want to link to the selected Album. You can link multiple Songs to the Album - just add each Id on a new line. When you are done just type '-1'");
         int userInput;
         ArrayList<Song> editedSongList = new ArrayList<>();
 
-        do {
+        while (true) {
             userInput = keyboardScanner.nextInt();
-
             if (userInput == -1) {
                 break;
-                //MenuUI_homePage.showMenu(artistId);
-            } else {
-                editedSongList.add(songList.get(userInput - 1));
             }
-        } while (userInput != -1);
+            editedSongList.add(songList.get(userInput - 1));
+        }
 
         return editedSongList;
     }

@@ -5,10 +5,11 @@ import com.spotify.model.Song;
 import com.spotify.service.AddSong_AddAlbum_Service;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class AddSong_AddAlbum_Setter {
 
-    public static Song setSongDetails(int artistId) {
+    public static Song setSongDetails(UUID artistId) {
 
         String songName = AddSong_AddAlbum_Getter.getSongName();
         String songDuration = AddSong_AddAlbum_Getter.getSongDuration();
@@ -19,7 +20,7 @@ public class AddSong_AddAlbum_Setter {
         return song;
     }
 
-    public static Album setAlbumDetails(int artistId) {
+    public static Album setAlbumDetails(UUID artistId) {
 
         String albumName = AddSong_AddAlbum_Getter.getSongAlbumName();
         Album album = new Album(albumName, artistId);
