@@ -5,11 +5,11 @@ public enum Role {
     Artist,
     User;
 
-    public static Role fromId(String role) {
+    public static Role fromString(String role) {
         switch (role) {
-            case "artist":
+            case "Artist":
                 return Role.Artist;
-            case "user":
+            case "User":
                 return Role.User;
             default:
                 return null;

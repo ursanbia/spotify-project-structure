@@ -25,7 +25,7 @@ public class ArtistDao {
                     artists) {
                 String[] userInfo = info.split(",");
 
-                if (Role.fromId(userInfo[3]) == Role.Artist) {
+                if (Role.fromString(userInfo[3]) == Role.Artist) {
                     //public Artist(UUID artistId, String email, String password, String artistName)
                     Artist artist = new Artist(UUID.fromString(userInfo[0]), userInfo[1],  userInfo[2], userInfo[4]);
                     artistList.add(artist);

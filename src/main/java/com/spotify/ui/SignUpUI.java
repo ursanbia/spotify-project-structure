@@ -22,15 +22,28 @@ public class SignUpUI {
         System.out.println("password: ");
         String password = scanner.next();
 
-        System.out.println("Please select from user types: \n 0. Artist\n 1. User");
-        int userTypeInteger = scanner.nextInt();
-        Role userType = Role.fromId(userTypeInteger);
-
         boolean isMailValid = this.usersController.validateEmail(email);
         boolean isPasswordValid = this.usersController.validatePassword(password);
+
         if (isMailValid && isPasswordValid) {
-            this.usersController.signUp(email, password, userType);
-            new LoginUI();
+
+            System.out.println("Please select from user types: \n 0. Artist\n 1. User");
+            int userTypeInteger = scanner.nextInt();
+            String userTypeString;
+            String artistName = "-";
+
+            if (userTypeInteger == 0) {
+                userTypeString = "Artist";
+                System.out.println("What is your artist name: ");
+                artistName = scanner.next();
+            } else {
+                userTypeString = "User";
+            }
+
+            Role role = Role.fromString(userTypeString);
+            this.usersController.signUp(email, password, role, artistName);
+           // new LoginUI();
+           // LoginUI.login();
         }
     }
 }

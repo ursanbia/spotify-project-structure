@@ -18,6 +18,8 @@ public class UserDao {
     private UUID id;
     private String email;
     private Role userType;
+    private String artistName;
+
     Path inputFile = Paths.get("src/main/resources/", "users.txt");
 
     public UUID getId() {
@@ -37,16 +39,21 @@ public class UserDao {
         return password;
     }
 
+    public String getArtistName() {
+        return artistName;
+    }
+
     private String password;
 
     public UserDao() {
     }
 
-    public UserDao(UUID id, String email, String password, Role userType) {
+    public UserDao(UUID id, String email, String password, Role userType, String artistName) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.userType = userType;
+        this.artistName = artistName;
     }
 
     private void createFileIfNotExists() {
@@ -70,7 +77,7 @@ public class UserDao {
                     users) {
                 if (!user.equals("")) {
                     String[] userInfo = user.split(",");
-                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2], Role.fromId(userInfo[3]));
+                    UserDao userDao = new UserDao(UUID.fromString(userInfo[0]), userInfo[1], userInfo[2], Role.fromString(userInfo[3]), userInfo[4]);
                     userDaos.add(userDao);
                 }
             }
@@ -82,12 +89,12 @@ public class UserDao {
         return new ArrayList<UserDao>();
     }
 
-    public void saveUser(String email, String password, Role userType) {
+    public void saveUser(String email, String password, Role userType, String artistName) {
         createFileIfNotExists();
-        var userDao = new UserDao(UUID.randomUUID(),email, password, userType);
+        var userDao = new UserDao(UUID.randomUUID(), email, password, userType, artistName);
 
         try {
-            String dao = "\n" + userDao.id + "," + userDao.email + "," + userDao.password + "," + userDao.userType.ordinal();
+            String dao = "\n" + userDao.id + "," + userDao.email + "," + userDao.password + "," + userDao.userType + "," + userDao.artistName;
             Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
         } catch (IOException e) {

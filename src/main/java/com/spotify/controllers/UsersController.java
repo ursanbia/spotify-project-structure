@@ -19,8 +19,8 @@ public class UsersController {
         return userService.getAllUsers();
     }
 
-    public void signUp(String email, String password, Role userType) {
-        userService.signUp(email, password, userType);
+    public void signUp(String email, String password, Role userType, String artistName) {
+        userService.signUp(email, password, userType, artistName);
     }
 
     public User login(String email, String password) {

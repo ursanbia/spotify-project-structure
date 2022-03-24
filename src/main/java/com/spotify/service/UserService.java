@@ -29,8 +29,8 @@ public class UserService {
         return users;
     }
 
-    public void signUp(String email, String password, Role userType) {
-        userDao.saveUser(email, password, userType);
+    public void signUp(String email, String password, Role userType, String artistName) {
+        userDao.saveUser(email, password, userType, artistName);
     }
 
     public User login(String email, String password) {

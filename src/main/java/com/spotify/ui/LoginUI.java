@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class LoginUI {
 
-    private UsersController usersController;
+    private static UsersController usersController;
 
     public LoginUI() {
         usersController = new UsersController();
     }
 
-    public void login() {
+    public static void login() {
         Scanner scanner = new Scanner(System.in);
         String email;
         String password;
@@ -27,7 +27,7 @@ public class LoginUI {
         if (loggedUser == null) {
             System.out.println("Invalid user credentials");
         } else {
-            System.out.println("Valid user credentials");
+            System.out.println("Welcome!");
             new MenuUI_homePage().showMenu(loggedUser.getUserType(), loggedUser.getId());
         }
     }

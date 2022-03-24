@@ -15,7 +15,7 @@ public class MenuUI_homePage {
 
         Scanner scanner = new Scanner(System.in);
 
-        if (userType == Role.Artist) {
+        if (userType == Role.fromString("Artist")) {
 
             while (true) {
                 System.out.println("\n|HOME PAGE|\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs | 3. See all your created songs | 4. Create a new album | 5. Link a song to an album");

@@ -1,2 +1,4 @@
-f07eb72c-f10a-4994-a7ab-28034484aa22,test@gmail.com,test123!,artist,Adele
-g07eb72c-f10a-4994-a7ab-28034484aa23,test@gmail.com,test123!,user,-
+f07eb72c-f10a-4994-a7ab-28034484aa22,a@a.com,test123!,Artist,Adele
+abd98961-309f-4468-a487-a2fcc52771ef,b@b.com,test123!,Artist,RazvanM
+63b3ea5a-ea1c-4370-991c-5663843b334b,c@c.com,test123!,User,-
+c0489d62-c934-4dfe-8934-81b1ab68616b,r@r.com,test123!,Artist,Razva
