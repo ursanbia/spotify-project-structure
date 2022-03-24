@@ -26,7 +26,7 @@ public class SearchUI {
                 String searchInput = Search_Getter.getSearched();
 
                 //get a songList that contains all searchInput from all the Songs
-                ArrayList<Song> generateListOf_Songs_thatContain_searchInput = SearchService.generateListOf_Songs_thatContain_searchInput(searchInput, (ArrayList<Song>) SongDao.getSongs());
+                ArrayList<Song> generateListOf_Songs_thatContain_searchInput = SearchService.generateListOf_Songs_thatContain_searchInput(searchInput, SongDao.getSongs());
 
                 //print get songList
                 if (!generateListOf_Songs_thatContain_searchInput.isEmpty()) {

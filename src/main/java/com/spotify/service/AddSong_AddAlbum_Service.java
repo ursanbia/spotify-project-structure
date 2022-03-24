@@ -102,7 +102,7 @@ public class AddSong_AddAlbum_Service {
 
         for (Song song : songList) {
 
-            if (song.getArtistId() == artistId) {
+            if (song.getArtistId().equals(artistId)) {
                 artist_songList.add(song);
             }
             //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!
@@ -119,7 +119,7 @@ public class AddSong_AddAlbum_Service {
 
         for (Song song : songList) {
 
-            if (song.getArtistId() == artistId && song.getAlbumId() == -1) {
+            if (song.getArtistId().equals(artistId) && song.getAlbumId() == -1) {
                 artist_songList_with_noAlbum.add(song);
             }
             //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!
@@ -133,7 +133,7 @@ public class AddSong_AddAlbum_Service {
         ArrayList<Album> currentArtist_albumList = new ArrayList<>();
 
         for (Album album : albumList) {
-            if (album.getArtistId() == artistId) {
+            if (album.getArtistId().equals(artistId)) {
                 currentArtist_albumList.add(album);
             }
             //NULL_POINT_EXCEPTION!!!!!!!!!!!!!!!!

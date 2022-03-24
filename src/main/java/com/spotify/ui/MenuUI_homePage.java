@@ -18,7 +18,7 @@ public class MenuUI_homePage {
         if (userType == Role.fromString("Artist")) {
 
             while (true) {
-                System.out.println("\n|HOME PAGE|\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs | 3. See all your created songs | 4. Create a new song | 5. Create a new album | 6. Link a song to an album");
+                System.out.println("\n========== Home page ==========\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs | 3. See all your created songs | 4. Create a new song | 5. Create a new album | 6. Link a song to an album");
 
                 int choice = scanner.nextInt();
                 if (choice == 0) {
@@ -52,7 +52,7 @@ public class MenuUI_homePage {
             }
         } else {
             while (true) {
-                System.out.println("|HOME PAGE|\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs");
+                System.out.println("\n========== Home page ==========\nSELECT BY NUMBER: 0. Exit | 1. Search songs | 2. Liked songs");
 
                 int choice = scanner.nextInt();
                 if (choice == 0) {

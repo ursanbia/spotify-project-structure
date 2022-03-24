@@ -8,8 +8,6 @@ import java.util.UUID;
 
 public class Song {
 
-    private Album album;
-    private Artist artist;
     private int id;
     private String songName;
     private String songDuration;
@@ -20,7 +18,7 @@ public class Song {
         this.songName = songName;
         this.songDuration = songDuration;
         this.artistId = artistId;
-        this.artist = ArtistDao.getArtist_byId(artistId);
+       // this.artist = ArtistDao.getArtist_byId(artistId);
         setId();
         this.id = getId();
     }
@@ -32,8 +30,8 @@ public class Song {
         this.songName = songName;
         this.songDuration = songDuration;
         this.albumId = albumId;
-        this.album = AlbumDao.getAlbum_byId(albumId);
-        this.artist = ArtistDao.getArtist_byId(artistId);
+//        this.album = AlbumDao.getAlbum_byId(albumId);
+//        this.artist = ArtistDao.getArtist_byId(artistId);
     }
 
     public int getId() {
@@ -45,13 +43,13 @@ public class Song {
         this.id = r.nextInt(10000);
     }
 
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
+//    public Album getAlbum() {
+//        return album;
+//    }
+//
+//    public void setAlbum(Album album) {
+//        this.album = album;
+//    }
 
     public int getAlbumId() {
         return albumId;
@@ -85,11 +83,11 @@ public class Song {
         this.artistId = artistId;
     }
 
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
+//    public Artist getArtist() {
+//        return artist;
+//    }
+//
+//    public void setArtist(Artist artist) {
+//        this.artist = artist;
+//    }
 }

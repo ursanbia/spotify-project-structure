@@ -46,7 +46,7 @@ public class ArtistDao {
         ArrayList<Artist> artistList = getArtists();
 
         for (Artist artist : artistList) {
-            if (artistId == artist.getId()) {
+            if (artistId.equals(artist.getId())) {
                 return artist;
             }
 
