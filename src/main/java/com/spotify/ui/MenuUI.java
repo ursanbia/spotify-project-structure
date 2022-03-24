@@ -18,78 +18,80 @@ public class MenuUI<emails> {
     }
 
     public void showMenu() {
-        System.out.println("Pick your choice:  ");
-        System.out.println("1. Show all users" + "\n" + "2. SignUp");
-        System.out.println("3. Login");
-        System.out.println("4. ShowAll_artists_Songs- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-        System.out.println("5. AddSongs- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-        System.out.println("6. AddAlbum- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-        System.out.println("7. AddSongsToAlbum - WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
-
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        int choice = 0;
+        System.out.println("Please choose from the following menu options: ");
+        System.out.println("1. SignUp");
+        System.out.println("2. Login");
 
-        String email = "";
-        String password = "";
+        choice = scanner.nextInt();
 
         switch (choice) {
-            case 1:
-                List<User> users = usersController.getUsers();
-                printUsers(users);
-                break;
-
-            case 2:
-                System.out.println("========== Please provide email & password ==========");
-                System.out.println("email: ");
-                email = scanner.next();
-                System.out.println("password: ");
-                password = scanner.next();
-                boolean isMailValid = this.usersController.validateEmail(email);
-                boolean isPasswordValid = this.usersController.validatePassword(password);
-                if (isMailValid && isPasswordValid) {
-                    this.usersController.signUp(email, password);
-                }
-                break;
-            case 3:
-                System.out.println("========== Please provide email & password ==========");
-                System.out.println("email: ");
-                email = scanner.next();
-                System.out.println("password: ");
-                password = scanner.next();
-
-                var loggedUser = usersController.login(email, password);
-                if (loggedUser == null) {
-                    System.out.println("Invalid user credentials");
-                } else {
-                    System.out.println("login successful");
-                    int artistId = -1;
-                    //DACA E ARTIST INITIALIZEAZA artistID cu Id-ul userului, altfel artistId = -1;
-                    MenuUI_homePage.showMenu(artistId);
-                }
-            case 4:
-                AddSong_AddAlbum_MenuUI.show_allSongs(1, (ArrayList<Song>) SongDao.getSongs());
-                break;
-//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
-            case 5:
-                AddSong_AddAlbum_MenuUI.show_addSongMenu(1, (ArrayList<Song>) SongDao.getSongs());
-//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
-                break;
-            case 6:
-                AddSong_AddAlbum_MenuUI.show_addAlbumMenu(1, AlbumDao.getAlbums());
-//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
-                break;
-            case 7:
-                AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(1, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
-//WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+            case 1: new SignUpUI().signUp();
+            break;
+            case 2: new LoginUI().login();
+            break;
             default:
-                System.out.println("Please pick your account type");
+                System.out.println("Please pick a valid option");
         }
-    }
 
-    private void printUsers(List<User> users) {
-        for (User user :
-                users) {
-            System.out.println("id:" + user.getId() + " email:" + user.getEmail() + " password:" + user.getPassword());
-        }
+//        System.out.println("1. Show all users" + "\n" + "2. SignUp");
+//        System.out.println("3. Login");
+//        System.out.println("4. AddSongsTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+//        System.out.println("5. AddAlbumTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+//        System.out.println("6. AddSongsToAlbumTEST- WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST");
+
+//        int choice = scanner.nextInt();
+//
+//        String email = "";
+//        String password = "";
+//
+//        switch (choice) {
+//            case 1:
+//                List<User> users = usersController.getUsers();
+//                printUsers(users);
+//                break;
+//
+//            case 2:
+//                System.out.println("========== Please provide email & password ==========");
+//                System.out.println("email: ");
+//                email = scanner.next();
+//                System.out.println("password: ");
+//                password = scanner.next();
+//                boolean isMailValid = this.usersController.validateEmail(email);
+//                boolean isPasswordValid = this.usersController.validatePassword(password);
+//                if (isMailValid && isPasswordValid) {
+//                    this.usersController.signUp(email, password);
+//                }
+//                break;
+//            case 3:
+//                System.out.println("========== Please provide email & password ==========");
+//                System.out.println("email: ");
+//                email = scanner.next();
+//                System.out.println("password: ");
+//                password = scanner.next();
+//
+//                var loggedUser = usersController.login(email, password);
+//                if (loggedUser == null) {
+//                    System.out.println("Invalid user credentials");
+//                } else {
+//                    System.out.println("login successful");
+//                    int artistId = -1;
+//                    //DACA E ARTIST INITIALIZEAZA artistID cu Id-ul userului, altfe artistId = -1;
+//                    MenuUI_homePage.showMenu(artistId);
+//                }
+//            case 4:
+//                AddSong_AddAlbum_MenuUI.show_addSongMenu(1, (ArrayList<Song>) SongDao.getSongs());
+////WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+//                break;
+//            case 5:
+//                AddSong_AddAlbum_MenuUI.show_addAlbumMenu(1, AlbumDao.getAlbums() );
+////WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+//            case 6:
+//                AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(1, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
+////WRONG POSITION HERE; TREBUIE UN ALT MENIU DUPA CE USERUL ESTE DEJA LOGAT; SI VA APAREA NUMAI DACA USERUL E ARTIST
+//            default:
+//                System.out.println("Please pick your account type");
+//        }
     }
 }

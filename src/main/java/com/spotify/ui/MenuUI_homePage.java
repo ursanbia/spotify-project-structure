@@ -3,27 +3,22 @@ package com.spotify.ui;
 import com.spotify.dao.AlbumDao;
 import com.spotify.dao.SongDao;
 import com.spotify.model.Song;
+import com.spotify.model.UserTypeEnum;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuUI_homePage {
 
-    public static void showMenu(int artistId) {
-        System.out.println("\n|HOME PAGE|");
-        System.out.println("1. Search songs");
-        System.out.println("2. Liked songs");
-        if (artistId != -1) {
-            System.out.println("3. See all your songs");
-            System.out.println("4. Add a new song");
-            System.out.println("5. Add a new album");
-            System.out.println("6. Link a song to an album");
-        }
-
+    public static void showMenu(UserTypeEnum userType, int artistId) {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        if (artistId != -1) {
+        if (userType == UserTypeEnum.User) {
+            System.out.println("\n|HOME PAGE|");
+            System.out.println("1. Search songs");
+            System.out.println("2. Liked songs");
+
             switch (choice) {
                 case 1:
                     //MenuUI_SearchSong.showmenu();
@@ -32,32 +27,25 @@ public class MenuUI_homePage {
                 case 2:
                     //MenuUI_LikedSongs.showmenu();
                     break;
+            }
 
-                case 3:
-                    AddSong_AddAlbum_MenuUI.show_allSongs(1, (ArrayList<Song>) SongDao.getSongs());
-                    break;
+        } else {
+            System.out.println("1. Add a new song");
+            System.out.println("2. Add a new album");
+            System.out.println("3. Link a song to an album");
 
-                case 4:
+            switch (choice) {
+                case 1:
                     AddSong_AddAlbum_MenuUI.show_addSongMenu(artistId, (ArrayList<Song>) SongDao.getSongs());
                     break;
 
-                case 5:
+                case 2:
                     AddSong_AddAlbum_MenuUI.show_addAlbumMenu(artistId, AlbumDao.getAlbums());
                     break;
 
-                case 6:
+                case 3:
                     AddSong_AddAlbum_MenuUI.show_addSongs_toAlbum_Menu(artistId, (ArrayList<Song>) SongDao.getSongs(), AlbumDao.getAlbums());
             }
-        } else {
-            switch (choice) {
-                case 1:
-                    //MenuUI_SearchSong.showmenu();
-                    break;
-
-                case 2:
-                    //MenuUI_LikedSongs.showmenu();
-            }
         }
-
     }
 }

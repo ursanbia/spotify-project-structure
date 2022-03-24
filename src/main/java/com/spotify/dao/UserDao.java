@@ -1,9 +1,8 @@
 package com.spotify.dao;
 
-import com.spotify.model.User;
+import com.spotify.model.UserTypeEnum;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,7 +10,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 
@@ -19,6 +17,7 @@ public class UserDao {
 
     private UUID id;
     private String email;
+    private UserTypeEnum userType;
     Path inputFile = Paths.get("src/main/resources/", "users.txt");
 
     public UUID getId() {
@@ -27,6 +26,11 @@ public class UserDao {
 
     public String getEmail() {
         return email;
+    }
+
+
+    public UserTypeEnum getUserType() {
+        return userType;
     }
 
     public String getPassword() {
@@ -38,10 +42,11 @@ public class UserDao {
     public UserDao() {
     }
 
-    public UserDao(UUID id, String email, String password) {
+    public UserDao(UUID id, String email, String password, UserTypeEnum userType) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.userType = userType;
     }
 
     private void createFileIfNotExists() {
@@ -65,7 +70,7 @@ public class UserDao {
                     users) {
                 if (!user.equals("")) {
                     String[] userInfo = user.split(",");
-                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2]);
+                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2], UserTypeEnum.fromId(Integer.parseInt(userInfo[3])));
                     userDaos.add(userDao);
                 }
             }
@@ -77,12 +82,12 @@ public class UserDao {
         return new ArrayList<UserDao>();
     }
 
-    public void saveUser(String email, String password) {
+    public void saveUser(String email, String password, UserTypeEnum userType) {
         createFileIfNotExists();
-        var userDao = new UserDao(UUID.randomUUID(),email, password);
+        var userDao = new UserDao(UUID.randomUUID(),email, password, userType);
 
         try {
-            String dao = "\n" + userDao.id + "," + userDao.email + "," + userDao.password;
+            String dao = "\n" + userDao.id + "," + userDao.email + "," + userDao.password + "," + userDao.userType.ordinal();
             Files.write(inputFile, dao.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
         } catch (IOException e) {
