@@ -1,7 +1,7 @@
 package com.spotify.ui;
 
 import com.spotify.controllers.UsersController;
-import com.spotify.model.UserTypeEnum;
+import com.spotify.model.Role;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class SignUpUI {
 
         System.out.println("Please select from user types: \n 0. Artist\n 1. User");
         int userTypeInteger = scanner.nextInt();
-        UserTypeEnum userType = UserTypeEnum.fromId(userTypeInteger);
+        Role userType = Role.fromId(userTypeInteger);
 
         boolean isMailValid = this.usersController.validateEmail(email);
         boolean isPasswordValid = this.usersController.validatePassword(password);

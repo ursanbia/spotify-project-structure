@@ -1,12 +1,14 @@
 package com.spotify.dao;
 
 import com.spotify.model.Song;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class SongDao {
 
@@ -21,7 +23,8 @@ public class SongDao {
             for (String melody :
                     songs) {
                 String[] songInfo = melody.split(",");
-                Song song = new Song(Integer.parseInt(songInfo[0]), Integer.parseInt(songInfo[1]), songInfo[2], songInfo[3], Integer.parseInt(songInfo[4]));
+                Song song = new Song(Integer.parseInt(songInfo[0]), UUID.fromString(songInfo[1]), songInfo[2], songInfo[3], Integer.parseInt(songInfo[4]));
+                System.out.println(UUID.fromString(songInfo[1]) + "\n");
                 songList.add(song);
             }
 
@@ -32,5 +35,7 @@ public class SongDao {
         }
         return new ArrayList<Song>();
     }
+
+
 
 }

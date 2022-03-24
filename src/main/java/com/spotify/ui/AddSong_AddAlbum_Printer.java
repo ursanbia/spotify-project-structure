@@ -27,7 +27,7 @@ public class AddSong_AddAlbum_Printer {
         int i = 1;
         for (Song song : artist_songList) {
             if (song.getAlbumId() != -1) {
-                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " from your album '" + song.getAlbum().getAlbumName() + "'");
+                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " from album '" + song.getAlbum().getAlbumName() + "'");
             } else {
                 System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration());
             }

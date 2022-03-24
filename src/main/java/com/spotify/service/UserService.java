@@ -2,7 +2,7 @@ package com.spotify.service;
 
 import com.spotify.dao.UserDao;
 import com.spotify.model.User;
-import com.spotify.model.UserTypeEnum;
+import com.spotify.model.Role;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class UserService {
         return users;
     }
 
-    public void signUp(String email, String password, UserTypeEnum userType) {
+    public void signUp(String email, String password, Role userType) {
         userDao.saveUser(email, password, userType);
     }
 

@@ -5,11 +5,11 @@ import java.util.UUID;
 public class User {
 
     private UUID id;
-    private String password;
     private String email;
-    private UserTypeEnum userType;
+    private String password;
+    private Role userType;
 
-    public User(UUID id, String password, String email, UserTypeEnum userType) {
+    public User(UUID id, String password, String email, Role userType) {
         this.id = id;
         this.password = password;
         this.email = email;
@@ -22,10 +22,6 @@ public class User {
 
     public UUID getId() {
         return id;
-    }
-
-    public UserTypeEnum getUserType() {
-        return this.userType;
     }
 
     public void setId(UUID id) {
@@ -48,7 +44,12 @@ public class User {
         this.password = password;
     }
 
-    public void setUserType(UserTypeEnum userType) {
+    public Role getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Role userType) {
         this.userType = userType;
     }
+
 }

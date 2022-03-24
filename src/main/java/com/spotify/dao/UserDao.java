@@ -1,6 +1,6 @@
 package com.spotify.dao;
 
-import com.spotify.model.UserTypeEnum;
+import com.spotify.model.Role;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class UserDao {
 
     private UUID id;
     private String email;
-    private UserTypeEnum userType;
+    private Role userType;
     Path inputFile = Paths.get("src/main/resources/", "users.txt");
 
     public UUID getId() {
@@ -29,7 +29,7 @@ public class UserDao {
     }
 
 
-    public UserTypeEnum getUserType() {
+    public Role getUserType() {
         return userType;
     }
 
@@ -42,7 +42,7 @@ public class UserDao {
     public UserDao() {
     }
 
-    public UserDao(UUID id, String email, String password, UserTypeEnum userType) {
+    public UserDao(UUID id, String email, String password, Role userType) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -70,7 +70,7 @@ public class UserDao {
                     users) {
                 if (!user.equals("")) {
                     String[] userInfo = user.split(",");
-                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2], UserTypeEnum.fromId(Integer.parseInt(userInfo[3])));
+                    UserDao userDao = new UserDao(UUID. fromString(userInfo[0]), userInfo[1], userInfo[2], Role.fromId(userInfo[3]));
                     userDaos.add(userDao);
                 }
             }
@@ -82,7 +82,7 @@ public class UserDao {
         return new ArrayList<UserDao>();
     }
 
-    public void saveUser(String email, String password, UserTypeEnum userType) {
+    public void saveUser(String email, String password, Role userType) {
         createFileIfNotExists();
         var userDao = new UserDao(UUID.randomUUID(),email, password, userType);
 

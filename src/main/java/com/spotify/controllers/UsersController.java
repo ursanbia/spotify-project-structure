@@ -1,7 +1,7 @@
 package com.spotify.controllers;
 
 import com.spotify.model.User;
-import com.spotify.model.UserTypeEnum;
+import com.spotify.model.Role;
 import com.spotify.service.UserService;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class UsersController {
         return userService.getAllUsers();
     }
 
-    public void signUp(String email, String password, UserTypeEnum userType) {
+    public void signUp(String email, String password, Role userType) {
         userService.signUp(email, password, userType);
     }
 

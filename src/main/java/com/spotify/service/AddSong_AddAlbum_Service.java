@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class AddSong_AddAlbum_Service {
 
@@ -95,7 +96,7 @@ public class AddSong_AddAlbum_Service {
 
     }
 
-    public static ArrayList<Song> generateListOf_Songs(int artistId, ArrayList<Song> songList) {
+    public static ArrayList<Song> generateListOf_Songs(UUID artistId, ArrayList<Song> songList) {
         //returns a list of the artists' Songs
         ArrayList<Song> artist_songList = new ArrayList<>();
 
@@ -112,7 +113,7 @@ public class AddSong_AddAlbum_Service {
     }
 
 
-    public static ArrayList<Song> generateListOf_Songs_thatHave_noAlbum(int artistId, ArrayList<Song> songList) {
+    public static ArrayList<Song> generateListOf_Songs_thatHave_noAlbum(UUID artistId, ArrayList<Song> songList) {
         //returns a list of the artists' Songs that have not been linked an Album
         ArrayList<Song> artist_songList_with_noAlbum = new ArrayList<>();
 
@@ -128,7 +129,7 @@ public class AddSong_AddAlbum_Service {
 
     }
 
-    public static ArrayList<Album> generateListOf_Albums_for_currentArtist(int artistId, ArrayList<Album> albumList) {
+    public static ArrayList<Album> generateListOf_Albums_for_currentArtist(UUID artistId, ArrayList<Album> albumList) {
         ArrayList<Album> currentArtist_albumList = new ArrayList<>();
 
         for (Album album : albumList) {

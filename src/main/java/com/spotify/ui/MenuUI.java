@@ -28,9 +28,9 @@ public class MenuUI<emails> {
 
         switch (choice) {
             case 1: new SignUpUI().signUp();
-            break;
+                break;
             case 2: new LoginUI().login();
-            break;
+                break;
             default:
                 System.out.println("Please pick a valid option");
         }
