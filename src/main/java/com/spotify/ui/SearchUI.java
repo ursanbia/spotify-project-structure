@@ -25,12 +25,14 @@ public class SearchUI {
             if (choice == 1) {//get the name of the song the user searched for
                 String searchInput = Search_Getter.getSearched();
 
-                //get a songList that contains all seachInput from all the Songs
+                //get a songList that contains all searchInput from all the Songs
                 ArrayList<Song> generateListOf_Songs_thatContain_searchInput = SearchService.generateListOf_Songs_thatContain_searchInput(searchInput, (ArrayList<Song>) SongDao.getSongs());
 
                 //print get songList
-            //    if (generateListOf_Songs_thatContain_searchInput.contains())
-            //    AddSong_AddAlbum_Printer.printSongs(generateListOf_Songs_thatContain_searchInput);
+                if (!generateListOf_Songs_thatContain_searchInput.isEmpty()) {
+                    AddSong_AddAlbum_Printer.printSongs(generateListOf_Songs_thatContain_searchInput);
+                }
+                else System.out.println("Nothing found! Please retry!");
             }
         }
     }

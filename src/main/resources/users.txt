@@ -1,4 +1,4 @@
-f07eb72c-f10a-4994-a7ab-28034484aa22,a@a.com,test123!,Artist,Adele
-abd98961-309f-4468-a487-a2fcc52771ef,b@b.com,test123!,Artist,RazvanM
+79c1d64a-3512-40a7-91f0-4e0df50392a6,a@a.com,test123!,Artist,Adele
+88c1d64a-3512-40a7-91f0-4e0df50392a6,b@b.com,test123!,Artist,RazvanM
 63b3ea5a-ea1c-4370-991c-5663843b334b,c@c.com,test123!,User,-
-c0489d62-c934-4dfe-8934-81b1ab68616b,r@r.com,test123!,Artist,Razva
+98c1d64a-3512-40a7-91f0-4e0df50392a6,r@r.com,test123!,Artist,Razva

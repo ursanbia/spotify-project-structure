@@ -24,7 +24,7 @@ public class SongDao {
                     songs) {
                 String[] songInfo = melody.split(",");
                 Song song = new Song(Integer.parseInt(songInfo[0]), UUID.fromString(songInfo[1]), songInfo[2], songInfo[3], Integer.parseInt(songInfo[4]));
-                System.out.println(UUID.fromString(songInfo[1]) + "\n");
+              //  System.out.println(UUID.fromString(songInfo[1]) + "\n");
                 songList.add(song);
             }
 

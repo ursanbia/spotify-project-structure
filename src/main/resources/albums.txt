@@ -1,5 +1,6 @@
-110,1,The best album
-432,1,Fancy album
-3320,2,My new album
-866,1,Yale
-7923,1,New yale
+110,79c1d64a-3512-40a7-91f0-4e0df50392a6,The best album
+432,79c1d64a-3512-40a7-91f0-4e0df50392a6,Fancy album
+3320,88c1d64a-3512-40a7-91f0-4e0df50392a6,My new album
+866,88c1d64a-3512-40a7-91f0-4e0df50392a6,Yale
+7923,98c1d64a-3512-40a7-91f0-4e0df50392a6,New yale
+7273,79c1d64a-3512-40a7-91f0-4e0df50392a6,Newest album
