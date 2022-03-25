@@ -31,15 +31,3 @@ public class SearchService {
 
     }
 }
-
-
-//        for (Song song : artist_songList) {
-//                Artist artist = ArtistDao.getArtist_byId(song.getArtistId());
-//                if (song.getAlbumId() != -1) {
-//                Album album = AlbumDao.getAlbum_byId(song.getAlbumId());
-//                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " by '" + artist.getArtistName() + "' from album '" + album.getAlbumName() + "'");
-//                } else {
-//                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " by '" + artist.getArtistName() + "'");
-//                i++;
-//                }
-//                }

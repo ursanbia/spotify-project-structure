@@ -26,24 +26,24 @@ public class SignUpUI {
         boolean isPasswordValid = this.usersController.validatePassword(password);
 
         if (isMailValid && isPasswordValid) {
-
             System.out.println("Please select from user types: \n 0. Artist\n 1. User");
             int userTypeInteger = scanner.nextInt();
             String userTypeString;
             String artistName = "-";
 
             if (userTypeInteger == 0) {
-                userTypeString = "Artist";
+                userTypeString = Role.Artist.name();
                 System.out.println("What is your artist name: ");
                 artistName = scanner.next();
             } else {
-                userTypeString = "User";
+                userTypeString = Role.User.name();
             }
 
             Role role = Role.fromString(userTypeString);
             this.usersController.signUp(email, password, role, artistName);
-            new LoginUI();
-            LoginUI.login();
+            new LoginUI().login();
+        } else {
+            new SignUpUI().signUp();
         }
     }
 }
