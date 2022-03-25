@@ -1,6 +1,7 @@
-79c1d64a-3512-40a7-91f0-4e0df50392a6,a@a.com,test123!,Artist,Adele
-88c1d64a-3512-40a7-91f0-4e0df50392a6,b@b.com,test123!,Artist,RazvanM
-63b3ea5a-ea1c-4370-991c-5663843b334b,c@c.com,test123!,User,-
-98c1d64a-3512-40a7-91f0-4e0df50392a6,r@r.com,test123!,Artist,Razva
-c88374d8-7f85-49cb-b2a4-c7c031b6f57b,q@q.com,test123!,User,-
-2fa1a349-9ed3-4715-839b-986b83ab6bae,t@t.com,test123!,Artist,Special
+
+bd6b0855-78ec-41d7-853a-497629617732,bianca@gamil.com,Bianca123!,User,-
+96bfee8d-0483-48ce-9426-86a38c37010b,user@gmail.com,User123!,Artist,User
+65248a10-bfe4-48d6-95a1-4ab2aaef9b89,test@yahoo.com,Test123!,Artist,solo
+73a975b5-e2d2-4fdc-8e47-d81207b6aed3,one@yahoo.com,One12345!,User,-
+033e9526-2129-42b6-bb2e-5ee570d3e56c,test@gg.com,test123!B,User,-
+14079406-3b59-4bed-b4fa-847d5bf0a974,test@ggg.com,ggg123!afV,User,-

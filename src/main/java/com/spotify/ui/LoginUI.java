@@ -4,15 +4,16 @@ import com.spotify.controllers.UsersController;
 
 import java.util.Scanner;
 
+
 public class LoginUI {
 
-    private static UsersController usersController;
+    private UsersController usersController;
 
     public LoginUI() {
         usersController = new UsersController();
     }
 
-    public static void login() {
+    public void login() {
         Scanner scanner = new Scanner(System.in);
         String email;
         String password;
@@ -26,6 +27,7 @@ public class LoginUI {
         var loggedUser = usersController.login(email, password);
         if (loggedUser == null) {
             System.out.println("Invalid user credentials");
+            new LoginUI().login();
         } else {
             System.out.println("Welcome!");
             new MenuUI_homePage().showMenu(loggedUser.getUserType(), loggedUser.getId());
