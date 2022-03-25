@@ -1,6 +1,6 @@
 79c1d64a-3512-40a7-91f0-4e0df50392a6,a@a.com,test123!,Artist,Adele
-88c1d64a-3512-40a7-91f0-4e0df50392a6,b@b.com,test123!,Artist,RazvanM
+88c1d64a-3512-40a7-91f0-4e0df50392a6,b@b.com,test123!,Artist,Razvan
 63b3ea5a-ea1c-4370-991c-5663843b334b,c@c.com,test123!,User,-
-98c1d64a-3512-40a7-91f0-4e0df50392a6,r@r.com,test123!,Artist,Razva
+98c1d64a-3512-40a7-91f0-4e0df50392a6,r@r.com,test123!,Artist,ABBA
 c88374d8-7f85-49cb-b2a4-c7c031b6f57b,q@q.com,test123!,User,-
-2fa1a349-9ed3-4715-839b-986b83ab6bae,t@t.com,test123!,Artist,Special
+2fa1a349-9ed3-4715-839b-986b83ab6bae,t@t.com,test123!,Artist,Frank Sinatra
