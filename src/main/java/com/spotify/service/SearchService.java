@@ -1,5 +1,9 @@
 package com.spotify.service;
 
+import com.spotify.dao.AlbumDao;
+import com.spotify.dao.ArtistDao;
+import com.spotify.model.Album;
+import com.spotify.model.Artist;
 import com.spotify.model.Song;
 
 import java.util.ArrayList;
@@ -12,9 +16,11 @@ public class SearchService {
         ArrayList<Song> songList_whichMached_searchInput = new ArrayList<>();
 
         for (Song song : songList) {
-            if (song.getSongName().contains(searchInput)
-                  //  (song.getAlbum() != null && song.getAlbum().getAlbumName().equalsIgnoreCase(searchInput)) ||
-                  //  (song.getArtist() != null && song.getArtist().getArtistName().equalsIgnoreCase(searchInput))
+            Album album = AlbumDao.getAlbum_byId(song.getAlbumId());
+            Artist artist = ArtistDao.getArtist_byId(song.getArtistId());
+            if (song.getSongName().contains(searchInput) ||
+                    (album.getAlbumName() != null && album.getAlbumName().contains(searchInput)) ||
+                    (artist.getArtistName() != null && artist.getArtistName().contains(searchInput))
             ) {
                 songList_whichMached_searchInput.add(song);
             }
@@ -25,3 +31,15 @@ public class SearchService {
 
     }
 }
+
+
+//        for (Song song : artist_songList) {
+//                Artist artist = ArtistDao.getArtist_byId(song.getArtistId());
+//                if (song.getAlbumId() != -1) {
+//                Album album = AlbumDao.getAlbum_byId(song.getAlbumId());
+//                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " by '" + artist.getArtistName() + "' from album '" + album.getAlbumName() + "'");
+//                } else {
+//                System.out.println(i + ") '" + song.getSongName() + "', " + song.getSongDuration() + " by '" + artist.getArtistName() + "'");
+//                i++;
+//                }
+//                }

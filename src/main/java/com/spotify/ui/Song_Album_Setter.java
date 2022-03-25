@@ -2,7 +2,7 @@ package com.spotify.ui;
 
 import com.spotify.model.Album;
 import com.spotify.model.Song;
-import com.spotify.service.AddSong_AddAlbum_Service;
+import com.spotify.service.Song_Album_Service;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -15,7 +15,7 @@ public class Song_Album_Setter {
         String songDuration = Song_Album_Getter.getSongDuration();
         Song song = new Song(songName, songDuration, artistId);
 
-        AddSong_AddAlbum_Service.addSongToFile(song);
+        Song_Album_Service.addSongToFile(song);
 
         return song;
     }
@@ -25,7 +25,7 @@ public class Song_Album_Setter {
         String albumName = Song_Album_Getter.getSongAlbumName();
         Album album = new Album(albumName, artistId);
 
-        AddSong_AddAlbum_Service.addAlbumToFile(album);
+        Song_Album_Service.addAlbumToFile(album);
 
         return album;
     }

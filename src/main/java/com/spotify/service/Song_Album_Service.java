@@ -13,7 +13,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class AddSong_AddAlbum_Service {
+public class Song_Album_Service {
 
     public static void addSongToFile(Song song) {
 
